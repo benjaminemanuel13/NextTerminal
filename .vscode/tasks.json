@@ -1,0 +1,31 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "Compile The Sucker",
+			"command": "D:\\z88dk\\bin\\zcc.exe",
+			"args": [
+				"+zx",
+				"-ID:\\Spectrum\\NextTerminal",
+				"-create-app",
+				"-lesxdos",
+				"-pragma-need=ansiterminal",
+				"-Cl-v",
+				"-pragma-define:ansicolumns=64",
+				//"-clib=new",
+				//"lndos",
+				//"-subtype=nex",
+				"${file}",
+				"-o",
+				"${fileDirname}\\test"
+			],
+			"options": {},
+			"problemMatcher": [],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}
