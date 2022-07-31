@@ -53,23 +53,16 @@ int main(int argc, char **argv)
    net.de = 0;  // if needed
    net.hl = 0; // if needed
 
-    /*
-        A stupid CSI escape code test
-        (normally no one uses CSI?)
-*/
-   printf("WARNING: ANSI library not working.\n");
-   printf("%c2J", 155);
-   printf("Z88DK Classic Lib ANSI Terminal\n");
+//   printf("WARNING: ANSI library not working.\n");
+//   printf("%c2J", 155);
+//   printf("Z88DK Classic Lib ANSI Terminal\n");
 
-    /*
-        Set Graphic Rendition test
-*/
-   printf("%c[1musing ESPAT.DRV for ZX Next ", 27);
-      printf("%c[2mBy Tim Gilberts\n", 27);
-   printf("%c[4m(c) 2018 Infinite Imaginations\n", 27);
-   printf("%c[24mThanks to AA for the patience!\n", 27);
-   printf("%c[7mPress SS and BREAK to exit. ", 27);
-   printf("%c[27mH for Help text\n", 27);
+//   printf("%c[1musing ESPAT.DRV for ZX Next ", 27);
+//      printf("%c[2mBy Tim Gilberts\n", 27);
+//   printf("%c[4m(c) 2018 Infinite Imaginations\n", 27);
+//   printf("%c[24mThanks to AA for the patience!\n", 27);
+//   printf("%c[7mPress SS and BREAK to exit. ", 27);
+//   printf("%c[27mH for Help text\n", 27);
    
    printf("Connecting to '%s'.\n", CONNECTstring);
    
@@ -113,6 +106,8 @@ for(;;)
    printf(lenstr);
    printf("\n");
 
+   //This Loop is woring fine on second loop
+
    for(int i = 0; i < 4; i++)
    {
       send.call.driver = 'N';
@@ -123,6 +118,8 @@ for(;;)
       if (esx_m_drvapi(&send))
          printf ("RTC Send error %u.\n",errno);
    }
+
+   //This Loop fails on second loop
 
    for(int i = 0; i < len; i++)
    {
